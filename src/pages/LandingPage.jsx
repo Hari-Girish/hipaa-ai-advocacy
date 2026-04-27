@@ -126,24 +126,24 @@ export default function LandingPage() {
             </div>
 
             {/* Hero image */}
-            <Reveal delay={0.2}>
-              <div style={{ position: 'relative', height: 520, borderRadius: 12, overflow: 'hidden' }}>
+            <Reveal delay={0.2} style={{ borderRadius: 12, overflow: 'hidden' }}>
+              <div style={{ position: 'relative', height: 520 }}>
                 <img
                   src="/MRIScans.jpg"
                   alt="Doctor reviewing MRI brain scans"
                   style={{
                     width: '100%', height: '100%',
                     objectFit: 'cover', objectPosition: 'center top',
-                    display: 'block',
+                    display: 'block', borderRadius: 12,
                   }}
                 />
                 {/* Dark overlay to blend with navy bg */}
                 <div style={{
-                  position: 'absolute', inset: 0,
+                  position: 'absolute', inset: 0, borderRadius: 12,
                   background: 'linear-gradient(to right, var(--navy) 0%, transparent 25%, transparent 75%, var(--navy) 100%), linear-gradient(to bottom, transparent 60%, var(--navy) 100%)',
                 }} />
                 {/* Amber accent line */}
-                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 3, background: 'var(--amber)' }} />
+                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 3, background: 'var(--amber)', borderRadius: '0 0 12px 12px' }} />
                 {/* Caption */}
                 <div style={{
                   position: 'absolute', bottom: '1rem', left: '1.25rem',
@@ -197,10 +197,10 @@ export default function LandingPage() {
                   <img
                     src="/neuralNetwork.jpg"
                     alt="AI neural network layers visualization"
-                    style={{ width: '100%', height: 180, objectFit: 'cover', objectPosition: 'center', display: 'block' }}
+                    style={{ width: '100%', height: 180, objectFit: 'cover', objectPosition: 'center', display: 'block', borderRadius: 8 }}
                   />
                   <div style={{
-                    position: 'absolute', inset: 0,
+                    position: 'absolute', inset: 0, borderRadius: 8,
                     background: 'linear-gradient(to right, transparent 40%, var(--navy-mid) 100%), linear-gradient(to bottom, var(--navy-mid) 0%, transparent 30%, transparent 70%, var(--navy-mid) 100%)',
                   }} />
                   <div style={{
