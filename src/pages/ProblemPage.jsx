@@ -195,7 +195,7 @@ export default function ProblemPage() {
                   </div>
                 </div>
               ))}
-              <p style={{ fontSize: '0.72rem', color: 'rgba(244,241,236,0.3)', marginTop: '0.5rem' }}>Sources: NEJM AI, JAMA Network Open, Radiology AI (2022–2024)</p>
+              <p style={{ fontSize: '0.72rem', color: 'rgba(244,241,236,0.3)', marginTop: '0.5rem' }}>Sources: NEJM AI, JAMA Network Open, Radiology AI (2022–2026)</p>
             </div>
           </div>
         </div>

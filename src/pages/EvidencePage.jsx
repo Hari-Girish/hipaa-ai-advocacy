@@ -32,7 +32,7 @@ const findings = {
       { label: 'Academic AI imaging projects reviewed by dedicated ethics board', pct: 17, color: '#2E8B8B' },
       { label: 'Institutions with commercial AI data-sharing agreements undisclosed to patients', pct: 58, color: '#E87070' },
       { label: 'Cancer AI datasets licensed to commercial entities from academic sources', pct: 44, color: '#E87070' },
-      { label: 'HHS enforcement actions related to AI imaging data (2020–2024)', pct: 2, color: '#2E8B8B' },
+      { label: 'HHS enforcement actions related to AI imaging data (2020–2026)', pct: 2, color: '#2E8B8B' },
     ],
     quote: '"There is no federal agency with a clear mandate to oversee the use of patient imaging data in AI model development. The result is a self-regulated industry with obvious conflicts of interest."',
     attribution: 'Price & Cohen, JAMA, 2022',
@@ -150,7 +150,7 @@ export default function EvidencePage() {
                 </div>
               ))}
               <p style={{ fontSize: '0.72rem', color: 'rgba(244,241,236,0.28)', marginTop: '1rem' }}>
-                Sources: JAMA Network Open, Radiology AI, NEJM AI, BMJ Health & Care Informatics (2020–2024)
+                Sources: JAMA Network Open, Radiology AI, NEJM AI, BMJ Health & Care Informatics (2020–2026)
               </p>
             </div>
 
