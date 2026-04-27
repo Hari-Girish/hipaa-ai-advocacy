@@ -127,23 +127,23 @@ export default function LandingPage() {
 
             {/* Hero image */}
             <Reveal delay={0.2} style={{ borderRadius: 12, overflow: 'hidden' }}>
-              <div style={{ position: 'relative', height: 520 }}>
+              <div style={{ position: 'relative', height: 520, borderRadius: 12, overflow: 'hidden' }}>
                 <img
                   src="/MRIScans.jpg"
                   alt="Doctor reviewing MRI brain scans"
                   style={{
                     width: '100%', height: '100%',
                     objectFit: 'cover', objectPosition: 'center top',
-                    display: 'block', borderRadius: 12,
+                    display: 'block',
                   }}
                 />
                 {/* Dark overlay to blend with navy bg */}
                 <div style={{
-                  position: 'absolute', inset: 0, borderRadius: 12,
+                  position: 'absolute', inset: 0,
                   background: 'linear-gradient(to right, var(--navy) 0%, transparent 25%, transparent 75%, var(--navy) 100%), linear-gradient(to bottom, transparent 60%, var(--navy) 100%)',
                 }} />
                 {/* Amber accent line */}
-                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 3, background: 'var(--amber)', borderRadius: '0 0 12px 12px' }} />
+                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 3, background: 'var(--amber)' }} />
                 {/* Caption */}
                 <div style={{
                   position: 'absolute', bottom: '1rem', left: '1.25rem',
