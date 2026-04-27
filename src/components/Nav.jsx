@@ -31,8 +31,7 @@ export default function Nav() {
     <>
       <nav className={`nav ${scrolled ? 'scrolled' : ''}`}>
         <div className="nav-logo" onClick={() => go('/')}>
-          HIPAA &amp; AI<br />
-          <span style={{ opacity: 0.5, fontSize: '0.65rem', letterSpacing: '0.08em' }}>Cancer Imaging</span>
+          Hippa for AI
         </div>
         <ul className="nav-links">
           {pages.slice(1).map(p => (

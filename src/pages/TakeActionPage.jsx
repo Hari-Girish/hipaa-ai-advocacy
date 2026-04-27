@@ -40,18 +40,69 @@ export default function TakeActionPage() {
   return (
     <div>
       {/* HERO */}
-      <section style={{ padding: '9rem 0 5rem', background: '#0D1B2A', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 60% 50%,rgba(232,168,56,0.06),transparent 70%)', pointerEvents: 'none' }} />
+      <section style={{ padding: '9rem 0 5rem', background: 'var(--navy)', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 60% 50%, rgba(232,168,56,0.06), transparent 70%)', pointerEvents: 'none' }} />
         <div className="container-narrow" style={{ position: 'relative' }}>
           <div className="pill" style={{ marginBottom: '1.5rem', background: 'rgba(232,168,56,0.2)', borderColor: 'rgba(232,168,56,0.5)' }}>Take Action</div>
           <h1 className="headline-lg" style={{ marginBottom: '1.5rem' }}>
-            Your voice can<br />
-            <span style={{ fontStyle: 'italic', color: '#E8A838' }}>change this law</span>
+            Congress has the authority.<br />
+            <span style={{ fontStyle: 'italic', color: 'var(--amber)' }}>It needs the pressure.</span>
           </h1>
           <div className="sep" />
-          <p className="body-lg" style={{ color: 'rgba(244,241,236,0.72)', maxWidth: 580 }}>
-            Congress responds to constituent pressure. A single letter, phone call, or meeting with a staffer can shift the conversation. Here are four concrete ways to act today.
+          <p className="body-lg" style={{ color: 'rgba(244,241,236,0.72)', maxWidth: 620 }}>
+            Two committees hold direct jurisdiction over HIPAA reform. In the Senate, the Health, Education, Labor, and Pensions (HELP) Committee has historically led HIPAA reform efforts. In the House, the Energy and Commerce Committee holds jurisdiction over health privacy law. Enforcement of any new provisions would fall to the HHS Office for Civil Rights — the existing body that currently enforces HIPAA compliance.
           </p>
+        </div>
+      </section>
+
+      {/* COMMITTEES */}
+      <section style={{ padding: '4rem 0', background: 'var(--navy-mid)', borderTop: '1px solid rgba(232,168,56,0.1)' }}>
+        <div className="container">
+          <div className="grid-3" style={{ gap: '1.5rem' }}>
+            {[
+              { tag: 'Senate', title: 'HELP Committee', desc: 'Health, Education, Labor, and Pensions. Historically the lead Senate committee for HIPAA reform.', color: 'var(--amber)' },
+              { tag: 'House', title: 'Energy & Commerce', desc: 'Holds jurisdiction over health privacy law in the U.S. House of Representatives.', color: 'var(--teal-light)' },
+              { tag: 'Enforcement', title: 'HHS Office for Civil Rights', desc: 'The existing body that enforces HIPAA compliance — the natural enforcer of any new provisions.', color: '#E87070' },
+            ].map((c, i) => (
+              <div key={i} style={{ background: 'var(--navy-light)', border: '1px solid rgba(244,241,236,0.06)', borderTop: `3px solid ${c.color}`, padding: '1.75rem' }}>
+                <div className="pill" style={{ marginBottom: '0.75rem', fontSize: '0.65rem', color: c.color, borderColor: `${c.color}55`, background: 'transparent' }}>{c.tag}</div>
+                <h3 className="headline-sm" style={{ color: c.color, marginBottom: '0.5rem' }}>{c.title}</h3>
+                <p className="body-md" style={{ color: 'rgba(244,241,236,0.6)', fontSize: '0.88rem', lineHeight: 1.65 }}>{c.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TWO AUDIENCES */}
+      <section style={{ padding: '6rem 0', background: 'var(--offwhite)' }}>
+        <div className="container">
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'flex-start' }}>
+            <div>
+              <div className="section-label teal" style={{ marginBottom: '0.75rem' }}>For Health Policy Stakeholders</div>
+              <h2 className="headline-md" style={{ color: 'var(--charcoal)', marginBottom: '1.25rem' }}>The evidence is in the record.</h2>
+              <div className="sep teal" />
+              <p className="body-md" style={{ color: 'var(--gray)', marginBottom: '1.25rem', lineHeight: 1.85 }}>
+                If you work in health policy, federal regulation, or legislative affairs, the evidence for a targeted HIPAA amendment is in the record. The peer-reviewed research, the HHS's own guidance, and the EU's binding precedent all point in the same direction.
+              </p>
+              <p className="body-md" style={{ color: 'var(--charcoal)', fontWeight: 500, lineHeight: 1.85 }}>
+                The question is not whether reform is possible — HIPAA's own amendment history proves it is. The question is whether Congress will act before the gaps deepen.
+              </p>
+            </div>
+            <div>
+              <div className="section-label" style={{ marginBottom: '0.75rem', color: 'var(--charcoal)', opacity: 0.7 }}>For the General Public</div>
+              <h2 className="headline-md" style={{ color: 'var(--charcoal)', marginBottom: '1.25rem' }}>A template you can send today.</h2>
+              <div className="sep" />
+              <div style={{ background: 'white', border: '1px solid var(--offwhite-dim)', borderLeft: '4px solid var(--amber)', padding: '1.5rem', boxShadow: '0 2px 12px rgba(0,0,0,0.05)' }}>
+                <p style={{ fontFamily: 'Georgia, serif', fontSize: '0.92rem', lineHeight: 1.85, color: 'var(--charcoal)', fontStyle: 'italic' }}>
+                  "I am writing to urge you to support a targeted amendment to HIPAA that addresses how patient imaging data is used in AI research. Current law does not require AI-specific informed consent, does not adequately address re-identification risk in high-dimensional data, and provides no federal oversight for academic institutions conducting this research. I ask you to support legislation that closes these gaps."
+                </p>
+              </div>
+              <p style={{ fontSize: '0.82rem', color: 'var(--gray)', marginTop: '1rem', lineHeight: 1.7 }}>
+                Contact your representative through <a href="https://www.congress.gov" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--teal)', fontWeight: 600 }}>congress.gov</a>. Find your senators at <a href="https://www.senate.gov" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--teal)', fontWeight: 600 }}>senate.gov</a>.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 

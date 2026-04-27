@@ -26,16 +26,16 @@ export default function SourcesPage() {
   return (
     <div>
       {/* HERO */}
-      <section style={{ padding: '9rem 0 5rem', background: '#0D1B2A' }}>
+      <section style={{ padding: '9rem 0 5rem', background: 'var(--navy)' }}>
         <div className="container-narrow">
           <div className="pill teal" style={{ marginBottom: '1.5rem' }}>Sources</div>
           <h1 className="headline-lg" style={{ marginBottom: '1.5rem' }}>
-            Research &amp;<br />
-            <span style={{ fontStyle: 'italic', color: '#3AABAB' }}>Citations</span>
+            Works<br />
+            <span style={{ fontStyle: 'italic', color: 'var(--teal-light)' }}>Cited</span>
           </h1>
           <div className="sep teal" />
           <p className="body-lg" style={{ color: 'rgba(244,241,236,0.7)', maxWidth: 580 }}>
-            Every claim on this site is grounded in peer-reviewed research or primary legal sources. All citations are available for independent verification.
+            All citations are drawn directly from the paper's Works Cited, with live links where available. Grouped into three categories for readability: Federal Policy &amp; Guidance, Peer-Reviewed Research, and News &amp; Legal.
           </p>
         </div>
       </section>

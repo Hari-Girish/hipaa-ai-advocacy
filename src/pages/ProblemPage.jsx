@@ -32,17 +32,54 @@ export default function ProblemPage() {
   return (
     <div>
       {/* HERO */}
-      <section style={{ padding: '9rem 0 5rem', background: '#0D1B2A' }}>
+      <section style={{ padding: '9rem 0 5rem', background: 'var(--navy)' }}>
         <div className="container-narrow">
           <div className="pill red" style={{ marginBottom: '1.5rem' }}>The Problem</div>
           <h1 className="headline-lg" style={{ marginBottom: '1.5rem' }}>
-            How patient data flows from<br />
-            <span style={{ fontStyle: 'italic', color: '#E8A838' }}>bedside to algorithm</span>
+            HIPAA was written for<br />
+            <span style={{ fontStyle: 'italic', color: 'var(--amber)' }}>a different era.</span>
           </h1>
           <div className="sep" />
           <p className="body-lg" style={{ color: 'rgba(244,241,236,0.72)', maxWidth: 620 }}>
-            The path from a cancer patient's scan to a commercial AI model is shorter — and less regulated — than most people realize. HIPAA contains three critical gaps that make patients vulnerable.
+            HIPAA allows researchers to use health data with patient identifiers removed — name, birthdate, address — without additional consent. Once those identifiers are stripped, the data is no longer treated as protected. Academic medical centers use this rule when training AI models on MRI and CT scans.
           </p>
+        </div>
+      </section>
+
+      {/* HIPAA TIMELINE */}
+      <section style={{ padding: '5rem 0', background: 'var(--navy-mid)' }}>
+        <div className="container">
+          <div style={{ maxWidth: 760, margin: '0 auto 3.5rem' }}>
+            <div className="section-label">A Three-Decade Lag</div>
+            <h2 className="headline-md" style={{ marginBottom: '1.5rem' }}>The law stopped updating before AI started reading scans</h2>
+          </div>
+          <div style={{ maxWidth: 760, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            {[
+              { year: '1996', title: 'HIPAA enacted', desc: 'Governs identifiable health information. AI does not exist as a clinical tool.' },
+              { year: '2013', title: 'Congress updates HIPAA', desc: 'Updates respond to electronic health records and cloud storage. The de-identification exemption remains intact.' },
+              { year: 'Today', title: 'AI trains on imaging data', desc: 'Academic medical centers use de-identified cancer imaging data to train machine learning models. HIPAA has no provisions covering this use.' },
+            ].map((step, i) => (
+              <div key={i} className="timeline-item" style={{ paddingBottom: '2rem' }}>
+                <div className="timeline-dot" style={{ width: 56, height: 56, fontSize: '0.78rem', textAlign: 'center', lineHeight: 1 }}>{step.year}</div>
+                <div style={{ paddingTop: '0.75rem', flex: 1 }}>
+                  <h4 className="headline-sm" style={{ marginBottom: '0.4rem' }}>{step.title}</h4>
+                  <p className="body-md" style={{ color: 'rgba(244,241,236,0.65)' }}>{step.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div style={{ maxWidth: 760, margin: '2.5rem auto 0' }}>
+            <p className="body-md" style={{ color: 'rgba(244,241,236,0.7)', lineHeight: 1.85, marginBottom: '1.25rem' }}>
+              The problem is that de-identification was designed for a different kind of data. High-dimensional imaging data contains complex patterns. When combined with other datasets, researchers or third parties may be able to re-link that data to individual patients.
+            </p>
+            <p className="body-md" style={{ color: 'rgba(244,241,236,0.7)', lineHeight: 1.85, marginBottom: '2rem' }}>
+              The U.S. Department of Health and Human Services acknowledges this in its own guidance. HIPAA does not address how algorithms extract long-term predictive value from patient data. It was written in 1996. It has never been updated for AI.
+            </p>
+            <div className="pull-quote">
+              "Both HIPAA de-identification methods, even when properly applied, yield data that retains some risk of re-identification — and that risk is not zero."
+              <div className="attribution">U.S. Department of Health and Human Services</div>
+            </div>
+          </div>
         </div>
       </section>
 
