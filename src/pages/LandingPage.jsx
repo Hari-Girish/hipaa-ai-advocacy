@@ -127,7 +127,7 @@ export default function LandingPage() {
 
             {/* Hero image */}
             <Reveal delay={0.2}>
-              <div style={{ position: 'relative', height: 520 }}>
+              <div style={{ position: 'relative', height: 520, borderRadius: 12, overflow: 'hidden' }}>
                 <img
                   src="/MRIScans.jpg"
                   alt="Doctor reviewing MRI brain scans"
@@ -193,7 +193,7 @@ export default function LandingPage() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
               {/* Neural network image */}
               <Reveal delay={0.05}>
-                <div style={{ position: 'relative', overflow: 'hidden', marginBottom: '0.5rem' }}>
+                <div style={{ position: 'relative', overflow: 'hidden', marginBottom: '0.5rem', borderRadius: 8 }}>
                   <img
                     src="/neuralNetwork.jpg"
                     alt="AI neural network layers visualization"
