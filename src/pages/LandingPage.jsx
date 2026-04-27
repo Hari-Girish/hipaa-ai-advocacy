@@ -88,38 +88,70 @@ export default function LandingPage() {
         }} />
 
         <div className="container" style={{ position: 'relative', zIndex: 2, ...heroContentStyle, transition: 'opacity 0.1s linear, transform 0.1s linear' }}>
-          <div style={{ maxWidth: 780 }}>
-            <Reveal>
-              <div className="pill" style={{ marginBottom: '1.5rem' }}>Policy Advocacy</div>
-            </Reveal>
-            <Reveal delay={0.15}>
-              <h1 className="headline-xl" style={{ marginBottom: '1.75rem', color: 'var(--offwhite)' }}>
-                Your MRI didn't{' '}
-                <span style={{ fontStyle: 'italic', color: 'var(--amber)' }}>stay in the room.</span>
-              </h1>
-            </Reveal>
-            <Reveal delay={0.3}>
-              <div style={{ maxWidth: 620, marginBottom: '2rem' }}>
-                <p className="body-lg" style={{ color: 'rgba(244,241,236,0.78)', marginBottom: '1rem' }}>
-                  Maria is 54 years old when her oncologist orders a CT scan. The tumor is caught early. She goes through treatment, recovers, and moves on.
-                </p>
-                <p className="body-lg" style={{ color: 'rgba(244,241,236,0.78)', marginBottom: '1rem' }}>
-                  What she never knows is that her scan — stripped of her name and birthdate — was deposited into a public database, accessed by three research institutions she has never heard of, and used to train a commercial algorithm she will never see.
-                </p>
-                <p className="body-lg" style={{ color: 'rgba(244,241,236,0.85)', fontWeight: 500 }}>
-                  Nobody asked her. Nobody was required to.
-                </p>
-              </div>
-              <div style={{ borderLeft: '3px solid var(--amber)', paddingLeft: '1.25rem', marginBottom: '2.5rem', maxWidth: 560 }}>
-                <p style={{ fontFamily: 'Playfair Display, serif', fontStyle: 'italic', fontSize: '1.2rem', lineHeight: 1.5, color: 'var(--offwhite)' }}>
-                  U.S. law has not caught up to what AI does with cancer patients' data. It needs to.
-                </p>
-              </div>
-            </Reveal>
-            <Reveal delay={0.45}>
-              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-                <button className="btn-primary" onClick={scrollToPreview}>See What's at Stake <span>↓</span></button>
-                <button className="btn-secondary" onClick={() => navigate('/evidence')}>Read the Policy Case <span>→</span></button>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 420px', gap: '4rem', alignItems: 'center' }}>
+            <div>
+              <Reveal>
+                <div className="pill" style={{ marginBottom: '1.5rem' }}>Policy Advocacy</div>
+              </Reveal>
+              <Reveal delay={0.15}>
+                <h1 className="headline-xl" style={{ marginBottom: '1.75rem', color: 'var(--offwhite)' }}>
+                  Your MRI didn't{' '}
+                  <span style={{ fontStyle: 'italic', color: 'var(--amber)' }}>stay in the room.</span>
+                </h1>
+              </Reveal>
+              <Reveal delay={0.3}>
+                <div style={{ maxWidth: 560, marginBottom: '2rem' }}>
+                  <p className="body-lg" style={{ color: 'rgba(244,241,236,0.78)', marginBottom: '1rem' }}>
+                    Maria is 54 years old when her oncologist orders a CT scan. The tumor is caught early. She goes through treatment, recovers, and moves on.
+                  </p>
+                  <p className="body-lg" style={{ color: 'rgba(244,241,236,0.78)', marginBottom: '1rem' }}>
+                    What she never knows is that her scan — stripped of her name and birthdate — was deposited into a public database, accessed by three research institutions she has never heard of, and used to train a commercial algorithm she will never see.
+                  </p>
+                  <p className="body-lg" style={{ color: 'rgba(244,241,236,0.85)', fontWeight: 500 }}>
+                    Nobody asked her. Nobody was required to.
+                  </p>
+                </div>
+                <div style={{ borderLeft: '3px solid var(--amber)', paddingLeft: '1.25rem', marginBottom: '2.5rem', maxWidth: 520 }}>
+                  <p style={{ fontFamily: 'Playfair Display, serif', fontStyle: 'italic', fontSize: '1.2rem', lineHeight: 1.5, color: 'var(--offwhite)' }}>
+                    U.S. law has not caught up to what AI does with cancer patients' data. It needs to.
+                  </p>
+                </div>
+              </Reveal>
+              <Reveal delay={0.45}>
+                <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                  <button className="btn-primary" onClick={scrollToPreview}>See What's at Stake <span>↓</span></button>
+                  <button className="btn-secondary" onClick={() => navigate('/evidence')}>Read the Policy Case <span>→</span></button>
+                </div>
+              </Reveal>
+            </div>
+
+            {/* Hero image */}
+            <Reveal delay={0.2}>
+              <div style={{ position: 'relative', height: 520 }}>
+                <img
+                  src="/MRIScans.jpg"
+                  alt="Doctor reviewing MRI brain scans"
+                  style={{
+                    width: '100%', height: '100%',
+                    objectFit: 'cover', objectPosition: 'center top',
+                    display: 'block',
+                  }}
+                />
+                {/* Dark overlay to blend with navy bg */}
+                <div style={{
+                  position: 'absolute', inset: 0,
+                  background: 'linear-gradient(to right, var(--navy) 0%, transparent 25%, transparent 75%, var(--navy) 100%), linear-gradient(to bottom, transparent 60%, var(--navy) 100%)',
+                }} />
+                {/* Amber accent line */}
+                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 3, background: 'var(--amber)' }} />
+                {/* Caption */}
+                <div style={{
+                  position: 'absolute', bottom: '1rem', left: '1.25rem',
+                  fontSize: '0.7rem', letterSpacing: '0.1em', textTransform: 'uppercase',
+                  color: 'rgba(244,241,236,0.45)', fontFamily: 'DM Sans, sans-serif',
+                }}>
+                  MRI brain scan review
+                </div>
               </div>
             </Reveal>
           </div>
@@ -159,6 +191,26 @@ export default function LandingPage() {
             </Reveal>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              {/* Neural network image */}
+              <Reveal delay={0.05}>
+                <div style={{ position: 'relative', overflow: 'hidden', marginBottom: '0.5rem' }}>
+                  <img
+                    src="/neuralNetwork.jpg"
+                    alt="AI neural network layers visualization"
+                    style={{ width: '100%', height: 180, objectFit: 'cover', objectPosition: 'center', display: 'block' }}
+                  />
+                  <div style={{
+                    position: 'absolute', inset: 0,
+                    background: 'linear-gradient(to right, transparent 40%, var(--navy-mid) 100%), linear-gradient(to bottom, var(--navy-mid) 0%, transparent 30%, transparent 70%, var(--navy-mid) 100%)',
+                  }} />
+                  <div style={{
+                    position: 'absolute', top: '50%', left: '1.25rem', transform: 'translateY(-50%)',
+                    fontSize: '0.68rem', letterSpacing: '0.12em', textTransform: 'uppercase',
+                    color: 'var(--teal-light)', fontFamily: 'DM Sans, sans-serif', fontWeight: 600,
+                  }}>AI model training →</div>
+                </div>
+              </Reveal>
+
               {[
                 { n: '01', title: 'AI Consent Gap', desc: 'Current HIPAA consent forms do not require disclosure when patient imaging data is used for AI training.', color: 'var(--amber)' },
                 { n: '02', title: 'Broken De-identification', desc: 'Standard HIPAA Safe Harbor de-identification methods fail against modern re-identification attacks.', color: 'var(--teal-light)' },

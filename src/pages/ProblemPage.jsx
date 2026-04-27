@@ -32,8 +32,17 @@ export default function ProblemPage() {
   return (
     <div>
       {/* HERO */}
-      <section style={{ padding: '9rem 0 5rem', background: 'var(--navy)' }}>
-        <div className="container-narrow">
+      <section style={{ padding: '9rem 0 5rem', background: 'var(--navy)', position: 'relative', overflow: 'hidden' }}>
+        {/* MRI machine background image */}
+        <div style={{ position: 'absolute', inset: 0 }}>
+          <img
+            src="/MRI_Machine.jpg"
+            alt="MRI machine in clinical setting"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', opacity: 0.18 }}
+          />
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, var(--navy) 45%, rgba(13,27,42,0.6) 100%)' }} />
+        </div>
+        <div className="container-narrow" style={{ position: 'relative', zIndex: 1 }}>
           <div className="pill red" style={{ marginBottom: '1.5rem' }}>The Problem</div>
           <h1 className="headline-lg" style={{ marginBottom: '1.5rem' }}>
             HIPAA was written for<br />
