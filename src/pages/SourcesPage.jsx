@@ -31,9 +31,9 @@ export default function SourcesPage() {
           <div className="pill teal" style={{ marginBottom: '1.5rem' }}>Sources</div>
           <h1 className="headline-lg" style={{ marginBottom: '1.5rem' }}>
             Works<br />
-            <span style={{ fontStyle: 'italic', color: 'var(--teal-light)' }}>Cited</span>
+            <span style={{ fontStyle: 'italic', color: 'var(--teal)' }}>Cited</span>
           </h1>
-          <div className="sep teal" />
+          
           <p className="body-lg" style={{ color: 'rgba(244,241,236,0.7)', maxWidth: 580 }}>
             All citations are drawn directly from the paper's Works Cited, with live links where available. Grouped into three categories for readability: Federal Policy &amp; Guidance, Peer-Reviewed Research, and News &amp; Legal.
           </p>

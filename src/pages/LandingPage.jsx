@@ -179,7 +179,7 @@ export default function LandingPage() {
               <div>
                 <div className="section-label">The Core Argument</div>
                 <h2 className="headline-lg" style={{ marginBottom: '1.5rem' }}>A 1996 law cannot protect patients in a 2026 world</h2>
-                <div className="sep" />
+                
                 <p className="body-lg" style={{ color: 'rgba(244,241,236,0.7)', marginBottom: '1.25rem' }}>
                   HIPAA's Privacy Rule established foundational protections for medical records. But its authors could not have anticipated that patient imaging data would one day be harvested, de-identified (imperfectly), and fed into commercial AI systems.
                 </p>

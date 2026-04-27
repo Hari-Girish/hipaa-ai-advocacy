@@ -48,7 +48,7 @@ export default function ProblemPage() {
             HIPAA was written for<br />
             <span style={{ fontStyle: 'italic', color: 'var(--amber)' }}>a different era.</span>
           </h1>
-          <div className="sep" />
+          
           <p className="body-lg" style={{ color: 'rgba(244,241,236,0.72)', maxWidth: 620 }}>
             HIPAA allows researchers to use health data with patient identifiers removed — name, birthdate, address — without additional consent. Once those identifiers are stripped, the data is no longer treated as protected. Academic medical centers use this rule when training AI models on MRI and CT scans.
           </p>
@@ -181,7 +181,7 @@ export default function ProblemPage() {
               <h2 className="headline-lg" style={{ marginBottom: '1.5rem' }}>
                 Cancer scans are uniquely valuable — and uniquely sensitive
               </h2>
-              <div className="sep" />
+              
               <p className="body-lg" style={{ color: 'rgba(244,241,236,0.7)', marginBottom: '1.25rem' }}>
                 Medical imaging — MRI, CT, PET scans — is the most commercially valuable category of health data for AI development. Unlike lab results or clinical notes, scans give AI systems a direct visual window into the human body that can be used to build diagnostic tools, predict outcomes, and price insurance risk.
               </p>

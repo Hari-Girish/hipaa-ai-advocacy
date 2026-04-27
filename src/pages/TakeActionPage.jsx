@@ -48,7 +48,7 @@ export default function TakeActionPage() {
             Congress has the authority.<br />
             <span style={{ fontStyle: 'italic', color: 'var(--amber)' }}>It needs the pressure.</span>
           </h1>
-          <div className="sep" />
+          
           <p className="body-lg" style={{ color: 'rgba(244,241,236,0.72)', maxWidth: 620 }}>
             Two committees hold direct jurisdiction over HIPAA reform. In the Senate, the Health, Education, Labor, and Pensions (HELP) Committee has historically led HIPAA reform efforts. In the House, the Energy and Commerce Committee holds jurisdiction over health privacy law. Enforcement of any new provisions would fall to the HHS Office for Civil Rights — the existing body that currently enforces HIPAA compliance.
           </p>
@@ -81,7 +81,7 @@ export default function TakeActionPage() {
             <div>
               <div className="section-label teal" style={{ marginBottom: '0.75rem' }}>For Health Policy Stakeholders</div>
               <h2 className="headline-md" style={{ color: 'var(--charcoal)', marginBottom: '1.25rem' }}>The evidence is in the record.</h2>
-              <div className="sep teal" />
+              
               <p className="body-md" style={{ color: 'var(--gray)', marginBottom: '1.25rem', lineHeight: 1.85 }}>
                 If you work in health policy, federal regulation, or legislative affairs, the evidence for a targeted HIPAA amendment is in the record. The peer-reviewed research, the HHS's own guidance, and the EU's binding precedent all point in the same direction.
               </p>
@@ -92,7 +92,7 @@ export default function TakeActionPage() {
             <div>
               <div className="section-label" style={{ marginBottom: '0.75rem', color: 'var(--charcoal)', opacity: 0.7 }}>For the General Public</div>
               <h2 className="headline-md" style={{ color: 'var(--charcoal)', marginBottom: '1.25rem' }}>A template you can send today.</h2>
-              <div className="sep" />
+              
               <div style={{ background: 'white', border: '1px solid var(--offwhite-dim)', borderLeft: '4px solid var(--amber)', padding: '1.5rem', boxShadow: '0 2px 12px rgba(0,0,0,0.05)' }}>
                 <p style={{ fontFamily: 'Georgia, serif', fontSize: '0.92rem', lineHeight: 1.85, color: 'var(--charcoal)', fontStyle: 'italic' }}>
                   "I am writing to urge you to support a targeted amendment to HIPAA that addresses how patient imaging data is used in AI research. Current law does not require AI-specific informed consent, does not adequately address re-identification risk in high-dimensional data, and provides no federal oversight for academic institutions conducting this research. I ask you to support legislation that closes these gaps."
@@ -139,7 +139,7 @@ export default function TakeActionPage() {
             <div>
               <div className="section-label teal" style={{ marginBottom: '1rem' }}>Action 1</div>
               <h2 className="headline-lg" style={{ color: '#1C1C1E', marginBottom: '1.25rem' }}>Write to Congress</h2>
-              <div className="sep teal" />
+              
               <p className="body-md" style={{ color: '#6B7280', marginBottom: '1.5rem', lineHeight: 1.8 }}>
                 We've drafted a template letter you can personalize and send to your representatives. The most effective letters are specific, personal, and constituent-identified.
               </p>
@@ -242,7 +242,7 @@ export default function TakeActionPage() {
         <div className="container-narrow">
           <div className="section-label" style={{ marginBottom: '1rem' }}>Action 4</div>
           <h2 className="headline-lg" style={{ marginBottom: '1.5rem' }}>Call your representative</h2>
-          <div className="sep" />
+          
           <p className="body-lg" style={{ color: 'rgba(244,241,236,0.7)', marginBottom: '2.5rem' }}>
             Phone calls are the most effective form of constituent outreach. Congressional staff tally calls daily. Use this script — it takes under three minutes.
           </p>

@@ -63,7 +63,7 @@ export default function PolicyPage() {
             <span style={{ fontStyle: 'italic', color: '#E8A838' }}>HIPAA amendment</span><br />
             for the AI era
           </h1>
-          <div className="sep" />
+          
           <p className="body-lg" style={{ color: 'rgba(244,241,236,0.72)', maxWidth: 620 }}>
             We propose a targeted legislative amendment — not a wholesale HIPAA overhaul — that closes three specific gaps. These are changes Congress can pass now, before the AI medical imaging market scales beyond the law's reach.
           </p>

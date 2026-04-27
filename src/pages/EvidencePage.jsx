@@ -85,9 +85,9 @@ export default function EvidencePage() {
           <div className="pill teal" style={{ marginBottom: '1.5rem' }}>Evidence</div>
           <h1 className="headline-lg" style={{ marginBottom: '1.5rem' }}>
             The gaps have<br />
-            <span style={{ fontStyle: 'italic', color: 'var(--teal-light)' }}>real consequences.</span>
+            <span style={{ fontStyle: 'italic', color: 'var(--teal)' }}>real consequences.</span>
           </h1>
-          <div className="sep teal" />
+          
           <p className="body-lg" style={{ color: 'rgba(244,241,236,0.72)', maxWidth: 620 }}>
             A growing body of peer-reviewed research documents the failures of current law. These findings are not speculative — they are measurable, documented, and escalating.
           </p>
