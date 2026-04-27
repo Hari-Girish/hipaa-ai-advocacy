@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 const flowSteps = [
   { step: '01', title: 'Patient Receives Care', desc: 'A cancer patient undergoes an MRI or CT scan at a hospital or academic medical center. They sign general consent forms for treatment.', tag: 'Clinical Setting' },
   { step: '02', title: 'Data Enters Research Pipeline', desc: "The imaging data is collected by the institution's radiology department and flagged as potentially useful for research under a broad IRB waiver.", tag: 'Institutional Review' },
-  { step: '03', title: 'De-identification (Attempts)', desc: 'Patient identifiers are removed under HIPAA Safe Harbor or Expert Determination — but metadata, rare diagnoses, and imaging artifacts can still enable re-identification.', tag: 'HIPAA Safe Harbor' },
+  { step: '03', title: 'De-identification (Attempts)', desc: "Patient identifiers — name, birthdate, address — are removed under HIPAA's Safe Harbor standard. But a scan itself carries identifying information: bone geometry, rare diagnoses, even the timestamps of when it was taken. These are not required to be removed.", tag: 'HIPAA Safe Harbor' },
   { step: '04', title: 'Transfer to AI Research Team', desc: 'The "de-identified" dataset is shared with an internal AI research team, or licensed to a commercial vendor or startup partner.', tag: 'Data Transfer' },
   { step: '05', title: 'AI Model Training', desc: 'The imaging data is used to train a diagnostic AI model. The resulting model may be commercialized, generating revenue the patient never shares in.', tag: 'AI Development' },
   { step: '06', title: 'No Patient Notification', desc: 'The patient is never informed their scan was used. No consent was specifically sought. No legal obligation required it under current HIPAA.', tag: 'Consent Gap' },
@@ -79,10 +79,10 @@ export default function ProblemPage() {
           </div>
           <div style={{ maxWidth: 760, margin: '2.5rem auto 0' }}>
             <p className="body-md" style={{ color: 'rgba(244,241,236,0.7)', lineHeight: 1.85, marginBottom: '1.25rem' }}>
-              The problem is that de-identification was designed for a different kind of data. High-dimensional imaging data contains complex patterns. When combined with other datasets, researchers or third parties may be able to re-link that data to individual patients.
+              The problem is that de-identification was designed for a different kind of data. A scan of the human body carries far more identifying information than a name or birthdate. When combined with other publicly available datasets, researchers or third parties can re-link that data to individual patients — even after the standard identifiers are removed.
             </p>
             <p className="body-md" style={{ color: 'rgba(244,241,236,0.7)', lineHeight: 1.85, marginBottom: '2rem' }}>
-              The U.S. Department of Health and Human Services acknowledges this in its own guidance. HIPAA does not address how algorithms extract long-term predictive value from patient data. It was written in 1996. It has never been updated for AI.
+              The U.S. Department of Health and Human Services acknowledges this in its own guidance. HIPAA does not address how AI systems extract lasting commercial value from patient scans. It was written in 1996. It has never been updated for AI.
             </p>
             <div className="pull-quote">
               "Both HIPAA de-identification methods, even when properly applied, yield data that retains some risk of re-identification — and that risk is not zero."
@@ -156,7 +156,7 @@ export default function ProblemPage() {
           <div className="grid-3">
             {[
               { n: '1', color: '#E8A838', title: 'No AI-Specific Informed Consent', body: "HIPAA's authorization requirements were designed for traditional research. They do not require healthcare providers to specifically disclose that patient imaging data may be used to train AI models — a use case with commercial implications far beyond conventional research.", quote: '"Patients have no meaningful opportunity to consent to, or opt out of, AI training uses of their imaging data."' },
-              { n: '2', color: '#2E8B8B', title: 'Weak De-identification Standards', body: "HIPAA's two de-identification methods — Safe Harbor (removing 18 identifiers) and Expert Determination — were developed before modern re-identification attacks. Medical images contain biometric data inherent to the scan itself: bone structure, organ geometry, and rare pathologies that resist standard stripping.", quote: '"Studies show that even properly de-identified medical images can be re-linked to patients with 83% accuracy."' },
+              { n: '2', color: '#2E8B8B', title: 'Weak De-identification Standards', body: "HIPAA's de-identification rules require removing 18 specific identifiers — like name, birthdate, and zip code. But a medical scan contains far more than that: the shape of a patient's bones, the pattern of a rare tumor, even timestamps embedded in the file. None of these are required to be removed, and all of them can be used to re-identify a patient.", quote: '"Studies show that even properly de-identified medical images can be re-linked to patients with 83% accuracy."' },
               { n: '3', color: '#E87070', title: 'No Oversight of Academic AI Use', body: 'Academic medical centers occupy a regulatory gray zone. They are subject to HIPAA but not to FDA oversight of AI model development. IRBs (Institutional Review Boards) review human subjects research, but AI training with de-identified data is frequently not classified as human subjects research.', quote: '"IRB waivers are routinely granted for AI imaging research, removing the last meaningful checkpoint."' },
             ].map(gap => (
               <div key={gap.n} style={{ background: 'white', border: '1px solid #E8E4DC', borderTop: `4px solid ${gap.color}`, padding: '2rem', boxShadow: '0 2px 16px rgba(0,0,0,0.05)' }}>
@@ -183,7 +183,7 @@ export default function ProblemPage() {
               </h2>
               <div className="sep" />
               <p className="body-lg" style={{ color: 'rgba(244,241,236,0.7)', marginBottom: '1.25rem' }}>
-                Medical imaging — MRI, CT, PET scans — represents the highest-value data in AI healthcare development. Unlike lab results or clinical notes, images contain dense, structured information that AI models can extract patterns from directly.
+                Medical imaging — MRI, CT, PET scans — is the most commercially valuable category of health data for AI development. Unlike lab results or clinical notes, scans give AI systems a direct visual window into the human body that can be used to build diagnostic tools, predict outcomes, and price insurance risk.
               </p>
               <p className="body-lg" style={{ color: 'rgba(244,241,236,0.7)', marginBottom: '1.25rem' }}>
                 Cancer imaging is especially prized because oncology AI commands the largest commercial market. A dataset of 50,000 labeled breast cancer MRIs can be worth millions of dollars to a medical AI startup.

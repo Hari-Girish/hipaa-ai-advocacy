@@ -114,7 +114,7 @@ h1,h2,h3,h4 { font-family: "Playfair Display", serif; }
 }
 .section-label.teal { color:#2E8B8B; }
 
-.sep { width:48px; height:3px; background:#E8A838; margin:1.5rem 0; }
+.sep { display:block; width:48px; height:3px; background:#E8A838; margin:1.5rem 0; border:none; }
 .sep.teal { background:#2E8B8B; }
 
 .pill {

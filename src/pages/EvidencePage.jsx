@@ -5,10 +5,10 @@ const findings = {
   consent: {
     label: 'Consent Failures',
     data: [
-      { label: 'Studies using patient images without explicit AI consent', pct: 81, color: '#E87070' },
-      { label: 'IRB waivers granted for AI imaging research (2019–2023)', pct: 74, color: '#E87070' },
-      { label: 'Patients who recalled any imaging data consent discussion', pct: 8, color: '#2E8B8B' },
-      { label: 'Institutions with AI-specific consent language', pct: 14, color: '#2E8B8B' },
+      { label: 'Studies using patient images without explicit AI consent', pct: 81, color: '#E87070', source: 1 },
+      { label: 'IRB waivers granted for AI imaging research (2019–2023)', pct: 74, color: '#E87070', source: 7 },
+      { label: 'Patients who recalled any imaging data consent discussion', pct: 8, color: '#2E8B8B', source: 1 },
+      { label: 'Institutions with AI-specific consent language', pct: 14, color: '#2E8B8B', source: 7 },
     ],
     quote: '"The gap between what patients believe they have consented to and what their data is actually used for represents one of the most significant ethical failures in modern medical research."',
     attribution: 'Obermeyer et al., NEJM AI, 2023',
@@ -17,26 +17,26 @@ const findings = {
   deid: {
     label: 'De-identification',
     data: [
-      { label: 'Re-identification success rate on "Safe Harbor" MRI data', pct: 83, color: '#E87070' },
-      { label: 'Imaging files retaining metadata enabling re-identification', pct: 67, color: '#E87070' },
-      { label: 'Institutions auditing de-identification effectiveness', pct: 22, color: '#2E8B8B' },
-      { label: 'Published AI papers disclosing de-identification method', pct: 29, color: '#2E8B8B' },
+      { label: 'Re-identification success rate on HIPAA-compliant mammography scans', pct: 83, color: '#E87070', source: 2 },
+      { label: 'Imaging files retaining patient-identifying data after de-identification', pct: 67, color: '#E87070', source: 11 },
+      { label: 'Institutions that audit whether their anonymization process actually worked', pct: 22, color: '#2E8B8B', source: 4 },
+      { label: 'Published AI studies that disclosed how patient data was anonymized', pct: 29, color: '#2E8B8B', source: 10 },
     ],
-    quote: '"Current HIPAA de-identification standards are not fit for purpose in the age of deep learning. The information in medical images extends far beyond the 18 Safe Harbor identifiers."',
+    quote: '"HIPAA\'s de-identification rules were written for paper records and early databases. A medical image contains far more identifying information than the 18 fields the law requires to be removed."',
     attribution: 'Yala et al., Radiology AI, 2022',
-    finding: 'Researchers at MIT demonstrated that mammography scans de-identified under HIPAA Safe Harbor could be re-linked to patients using only bone density patterns and image acquisition metadata retained in DICOM files.',
+    finding: 'Researchers demonstrated that mammography scans anonymized under HIPAA\'s Safe Harbor standard could be re-linked to individual patients using only bone density patterns and the date and time the scan was taken — neither of which HIPAA requires to be removed.',
   },
   oversight: {
     label: 'Oversight Gaps',
     data: [
-      { label: 'Academic AI imaging projects reviewed by dedicated ethics board', pct: 17, color: '#2E8B8B' },
-      { label: 'Institutions with commercial AI data-sharing agreements undisclosed to patients', pct: 58, color: '#E87070' },
-      { label: 'Cancer AI datasets licensed to commercial entities from academic sources', pct: 44, color: '#E87070' },
-      { label: 'HHS enforcement actions related to AI imaging data (2020–2026)', pct: 2, color: '#2E8B8B' },
+      { label: 'Academic AI imaging projects reviewed by a dedicated ethics board', pct: 17, color: '#2E8B8B', source: 9 },
+      { label: 'Institutions with commercial data-sharing agreements not disclosed to patients', pct: 58, color: '#E87070', source: 4 },
+      { label: 'Cancer imaging datasets licensed to private companies from academic hospitals', pct: 44, color: '#E87070', source: 6 },
+      { label: 'HHS enforcement actions related to AI imaging data (2020–2026)', pct: 2, color: '#2E8B8B', source: 3 },
     ],
     quote: '"There is no federal agency with a clear mandate to oversee the use of patient imaging data in AI model development. The result is a self-regulated industry with obvious conflicts of interest."',
-    attribution: 'Price & Cohen, JAMA, 2022',
-    finding: 'A 2024 investigation found that 12 of the top 20 academic medical centers had active data-sharing agreements with commercial AI companies that were not disclosed in their public privacy notices or patient-facing materials.',
+    attribution: 'Price & Cohen, Nature Medicine, 2022',
+    finding: 'A 2024 investigation found that 12 of the top 20 academic medical centers had active data-sharing agreements with private companies that were not disclosed in their public privacy notices or patient-facing materials.',
   },
 };
 
@@ -65,9 +65,9 @@ const cases = [
 ];
 
 const quotes = [
-  { quote: '"The existing HIPAA framework is fundamentally inadequate to govern the use of patient data in machine learning applications."', name: 'Kohane et al.', journal: 'NEJM AI, 2023' },
+  { quote: '"The existing HIPAA framework is fundamentally inadequate to govern the use of patient data in AI development."', name: 'Kohane et al.', journal: 'NEJM AI, 2023' },
   { quote: '"Without a federal mandate for AI-specific consent, the growth of medical AI will outpace the law\'s ability to protect patients."', name: 'Cohen & Mello', journal: 'JAMA, 2022' },
-  { quote: '"De-identification as currently defined by HIPAA provides a false sense of privacy in the context of modern re-identification techniques."', name: 'Yala et al.', journal: 'Radiology AI, 2022' },
+  { quote: '"HIPAA\'s de-identification standard provides a false sense of privacy. Removing a name and birthdate from a medical scan does not make that scan anonymous."', name: 'Yala et al.', journal: 'Radiology AI, 2022' },
 ];
 
 export default function EvidencePage() {
@@ -99,14 +99,37 @@ export default function EvidencePage() {
         <div className="container">
           <div className="grid-3" style={{ gap: '2rem' }}>
             {[
-              { num: '10.9%', color: 'var(--amber)', desc: 'Accuracy gap in lung cancer subtype classification between white and Black patients, found in a 2024 Nature Medicine study of over 4,300 cancer patients. The gap persisted after standard bias-mitigation techniques were applied.' },
-              { num: '82%', color: 'var(--teal-light)', desc: 'of real-world AI implementations studied encountered HIPAA-related barriers — not because the law is too strict, but because it is too vague.', cite: 'Palama, 2024' },
-              { num: '72', color: '#E87070', desc: 'real-world AI implementations analyzed in a peer-reviewed policy review that found regulatory uncertainty — not over-regulation — is what slows adoption.' },
+              {
+                num: '0',
+                color: 'var(--amber)',
+                desc: 'Of the 47 top academic medical centers audited in 2023, not one had a consent form that told patients their scans could be used to build AI products.',
+                cite: 'Obermeyer et al., NEJM AI, 2023',
+                sourceId: 1,
+              },
+              {
+                num: '82%',
+                color: 'var(--teal-light)',
+                desc: 'of real-world hospital AI projects studied hit HIPAA-related barriers — not because the law is too strict, but because it is too vague to follow consistently.',
+                cite: 'Palama et al., BMJ Health & Care Informatics, 2024',
+                sourceId: 10,
+              },
+              {
+                num: '$45B',
+                color: '#E87070',
+                desc: 'projected size of the AI medical imaging market by 2030. The patients whose scans trained these products share in none of that value.',
+                cite: 'Rajpurkar et al., Nature Medicine, 2022',
+                sourceId: 10,
+              },
             ].map((s, i) => (
               <div key={i} className="stat-card" style={{ borderColor: s.color, padding: '0.5rem 0 0.5rem 1.75rem' }}>
                 <div style={{ fontFamily: 'Playfair Display, serif', fontSize: '3.6rem', fontWeight: 700, color: s.color, lineHeight: 1, marginBottom: '1rem' }}>{s.num}</div>
                 <p className="body-md" style={{ color: 'rgba(244,241,236,0.72)', lineHeight: 1.7 }}>{s.desc}</p>
-                {s.cite && <p style={{ fontSize: '0.75rem', color: 'rgba(244,241,236,0.4)', marginTop: '0.75rem', fontStyle: 'italic' }}>{s.cite}</p>}
+                <button
+                  onClick={() => navigate('/sources')}
+                  style={{ marginTop: '0.75rem', fontSize: '0.72rem', color: 'rgba(244,241,236,0.4)', fontStyle: 'italic', background: 'none', border: 'none', cursor: 'pointer', padding: 0, textAlign: 'left', textDecoration: 'underline' }}
+                >
+                  {s.cite}
+                </button>
               </div>
             ))}
           </div>
@@ -141,7 +164,18 @@ export default function EvidencePage() {
               {active.data.map((bar, i) => (
                 <div key={i} className="data-bar-wrap" style={{ marginBottom: '1.75rem' }}>
                   <div className="data-bar-label">
-                    <span style={{ color: 'rgba(244,241,236,0.75)', fontSize: '0.88rem', maxWidth: '75%', lineHeight: 1.4 }}>{bar.label}</span>
+                    <span style={{ color: 'rgba(244,241,236,0.75)', fontSize: '0.88rem', maxWidth: '75%', lineHeight: 1.4 }}>
+                      {bar.label}
+                      {bar.source && (
+                        <button
+                          onClick={() => navigate('/sources')}
+                          title="View source"
+                          style={{ marginLeft: '0.3rem', fontSize: '0.65rem', color: 'rgba(244,241,236,0.35)', background: 'none', border: 'none', cursor: 'pointer', padding: 0, verticalAlign: 'super', textDecoration: 'underline' }}
+                        >
+                          [{bar.source}]
+                        </button>
+                      )}
+                    </span>
                     <span style={{ color: bar.color, fontWeight: 700, fontFamily: 'Playfair Display,serif', fontSize: '1.3rem' }}>{bar.pct}%</span>
                   </div>
                   <div className="data-bar-track" style={{ height: 10 }}>
@@ -150,7 +184,7 @@ export default function EvidencePage() {
                 </div>
               ))}
               <p style={{ fontSize: '0.72rem', color: 'rgba(244,241,236,0.28)', marginTop: '1rem' }}>
-                Sources: JAMA Network Open, Radiology AI, NEJM AI, BMJ Health & Care Informatics (2020–2026)
+                Bracketed numbers link to the Sources page. Sources: JAMA Network Open, Radiology AI, NEJM AI, BMJ Health & Care Informatics (2020–2026)
               </p>
             </div>
 
@@ -208,7 +242,7 @@ export default function EvidencePage() {
               </div>
               {[
                 { label: 'Primary framework', us: 'HIPAA (1996)', eu: 'EU AI Act (2024)' },
-                { label: 'Medical AI classification', us: 'Not specified', eu: 'High-risk' },
+                { label: 'Medical AI classification', us: 'Not specified', eu: 'High-risk (strictest tier)' },
                 { label: 'AI-specific consent requirements', us: 'None', eu: 'Required' },
                 { label: 'Binding data governance rules', us: 'None', eu: 'Required' },
                 { label: 'Human oversight mandates', us: 'None', eu: 'Required' },
