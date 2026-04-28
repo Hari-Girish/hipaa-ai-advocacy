@@ -65,7 +65,7 @@ export default function ProblemPage() {
           <div style={{ maxWidth: 760, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
             {[
               { year: '1996', title: 'HIPAA enacted', desc: 'Governs identifiable health information. AI does not exist as a clinical tool.' },
-              { year: '2013', title: 'Congress updates HIPAA', desc: 'Updates respond to electronic health records and cloud storage. The de-identification exemption remains intact.' },
+              { year: '2013', title: 'Congress updates HIPAA', desc: 'Updates respond to electronic health records and cloud storage. The de-identification exemption remains intact. This proves Congress can and does update HIPAA when new technology creates new risks.' },
               { year: 'Today', title: 'AI trains on imaging data', desc: 'Academic medical centers use de-identified cancer imaging data to train machine learning models. HIPAA has no provisions covering this use.' },
             ].map((step, i) => (
               <div key={i} className="timeline-item" style={{ paddingBottom: '2rem' }}>
@@ -81,8 +81,11 @@ export default function ProblemPage() {
             <p className="body-md" style={{ color: 'rgba(244,241,236,0.7)', lineHeight: 1.85, marginBottom: '1.25rem' }}>
               The problem is that de-identification was designed for a different kind of data. A scan of the human body carries far more identifying information than a name or birthdate. When combined with other publicly available datasets, researchers or third parties can re-link that data to individual patients — even after the standard identifiers are removed.
             </p>
-            <p className="body-md" style={{ color: 'rgba(244,241,236,0.7)', lineHeight: 1.85, marginBottom: '2rem' }}>
+            <p className="body-md" style={{ color: 'rgba(244,241,236,0.7)', lineHeight: 1.85, marginBottom: '1.25rem' }}>
               The U.S. Department of Health and Human Services acknowledges this in its own guidance. HIPAA does not address how AI systems extract lasting commercial value from patient scans. It was written in 1996. It has never been updated for AI.
+            </p>
+            <p className="body-md" style={{ color: 'rgba(244,241,236,0.7)', lineHeight: 1.85, marginBottom: '2rem' }}>
+              At the same time, federal funding rules push data in the other direction. The National Institutes of Health requires researchers who receive grant money to share the data they collect — a policy designed to promote open science. In practice, this means cancer patients' MRI and CT scans end up in publicly accessible databases like The Cancer Imaging Archive, where they can be downloaded and used to train AI products by anyone, anywhere, without any additional consent from the patient who generated them.
             </p>
             <div className="pull-quote">
               "Both HIPAA de-identification methods, even when properly applied, yield data that retains some risk of re-identification — and that risk is not zero."

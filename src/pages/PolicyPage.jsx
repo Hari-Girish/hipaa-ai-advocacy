@@ -123,8 +123,8 @@ export default function PolicyPage() {
 
           <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '3rem', alignItems: 'flex-start' }}>
             <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-                <div style={{ fontFamily: 'Playfair Display,serif', fontSize: '5rem', fontWeight: 700, color: p.color, opacity: 0.15, lineHeight: 1 }}>{p.n}</div>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', marginBottom: '1.5rem' }}>
+                <div style={{ fontFamily: 'Playfair Display,serif', fontSize: '5rem', fontWeight: 700, color: p.color, opacity: 0.5, lineHeight: 1, flexShrink: 0 }}>{p.n}</div>
                 <div>
                   <h2 className="headline-md" style={{ color: '#1C1C1E' }}>{p.title}</h2>
                   <p style={{ color: '#2E8B8B', fontSize: '0.85rem', fontWeight: 600, marginTop: '0.25rem' }}>{p.subtitle}</p>
@@ -190,6 +190,34 @@ export default function PolicyPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* COUNTERARGUMENT + REBUTTAL */}
+      <section style={{ padding: '6rem 0', background: '#F4F1EC' }}>
+        <div className="container">
+          <div style={{ maxWidth: 860, margin: '0 auto' }}>
+            <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+              <div className="section-label teal" style={{ display: 'flex', justifyContent: 'center' }}>Addressing the Opposition</div>
+              <h2 className="headline-lg" style={{ color: 'var(--charcoal)' }}>The strongest objection — and why it doesn't hold</h2>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+              <div style={{ background: 'white', border: '1px solid var(--offwhite-dim)', borderTop: '4px solid #6B7280', padding: '2rem', boxShadow: '0 2px 12px rgba(0,0,0,0.05)' }}>
+                <div className="section-label" style={{ marginBottom: '0.75rem', color: '#6B7280' }}>The Objection</div>
+                <h3 className="headline-sm" style={{ color: 'var(--charcoal)', marginBottom: '1rem' }}>HIPAA is already adequate</h3>
+                <p className="body-md" style={{ color: '#6B7280', lineHeight: 1.8 }}>
+                  The American Hospital Association — representing nearly 5,000 hospitals — argues that creating new AI-specific rules outside HIPAA would add redundancy and slow down legitimate research. Their position: if HIPAA is applied correctly, it already strikes the right balance between privacy and innovation.
+                </p>
+              </div>
+              <div style={{ background: 'white', border: '1px solid var(--offwhite-dim)', borderTop: `4px solid var(--teal)`, padding: '2rem', boxShadow: '0 2px 12px rgba(0,0,0,0.05)' }}>
+                <div className="section-label teal" style={{ marginBottom: '0.75rem' }}>The Rebuttal</div>
+                <h3 className="headline-sm" style={{ color: 'var(--charcoal)', marginBottom: '1rem' }}>Vagueness is the problem, not strictness</h3>
+                <p className="body-md" style={{ color: '#3a3a3a', lineHeight: 1.8 }}>
+                  A peer-reviewed analysis of 72 real-world hospital AI projects found that 82% ran into HIPAA-related barriers — not because the law is too strict, but because it is too vague to follow consistently. Hospitals and researchers don't know what's required of them. That uncertainty slows innovation more than clear rules would. This proposal doesn't add a new law on top of HIPAA. It fills gaps HIPAA itself openly acknowledges.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

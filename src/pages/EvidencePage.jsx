@@ -12,7 +12,7 @@ const findings = {
     ],
     quote: '"The gap between what patients believe they have consented to and what their data is actually used for represents one of the most significant ethical failures in modern medical research."',
     attribution: 'Obermeyer et al., NEJM AI, 2023',
-    finding: <>A 2023 audit of 47 top academic medical centers found that <mark>not a single institution</mark> had a consent process that specifically disclosed AI training as a potential use of patient imaging data.</>,
+    finding: <>A 2023 audit of 47 top academic medical centers found that <mark>not a single institution</mark> had a consent process that specifically disclosed AI training as a potential use of patient imaging data. When patients sign admission forms, they are agreeing to general "research purposes" — not to having their scans used to build products that may be sold to insurance companies.</>,
   },
   deid: {
     label: 'De-identification',
@@ -24,7 +24,7 @@ const findings = {
     ],
     quote: '"HIPAA\'s de-identification rules were written for paper records and early databases. A medical image contains far more identifying information than the 18 fields the law requires to be removed."',
     attribution: 'Yala et al., Radiology AI, 2022',
-    finding: 'Researchers demonstrated that mammography scans anonymized under HIPAA\'s Safe Harbor standard could be re-linked to individual patients using only bone density patterns and the date and time the scan was taken — neither of which HIPAA requires to be removed.',
+    finding: 'Researchers demonstrated that mammography scans anonymized under HIPAA\'s Safe Harbor standard could be re-linked to individual patients using only bone density patterns and the date and time the scan was taken — neither of which HIPAA requires to be removed. Stripping a name from a scan does not make the scan anonymous.',
   },
   oversight: {
     label: 'Oversight Gaps',
@@ -36,7 +36,19 @@ const findings = {
     ],
     quote: '"There is no federal agency with a clear mandate to oversee the use of patient imaging data in AI model development. The result is a self-regulated industry with obvious conflicts of interest."',
     attribution: 'Price & Cohen, Nature Medicine, 2022',
-    finding: 'A 2024 investigation found that 12 of the top 20 academic medical centers had active data-sharing agreements with private companies that were not disclosed in their public privacy notices or patient-facing materials.',
+    finding: 'A 2024 investigation found that 12 of the top 20 academic medical centers had active data-sharing agreements with private companies that were not disclosed in their public privacy notices or patient-facing materials. When enforcement does happen, it comes from the FTC — a consumer protection agency — not from HIPAA. That is a sign the system is broken, not working.',
+  },
+  bias: {
+    label: 'Algorithmic Bias',
+    data: [
+      { label: 'Accuracy gap in lung cancer classification between white and Black patients', pct: 10.9, color: '#E87070', source: 13 },
+      { label: 'AI lung cancer studies flagging bias and lack of oversight as serious risks', pct: 78, color: '#E87070', source: 14 },
+      { label: 'Cancer AI models tested across racially diverse patient populations', pct: 21, color: '#2E8B8B', source: 14 },
+      { label: 'AI oncology studies reporting training data demographic composition', pct: 33, color: '#2E8B8B', source: 13 },
+    ],
+    quote: '"When patients do not know their data is being used to build these models, they cannot raise concerns about how that data is sourced, who profits from it, or whether the resulting algorithms serve populations like theirs."',
+    attribution: 'Arenas et al., Frontiers in Public Health, 2025',
+    finding: 'A 2024 study in Nature Medicine found that an AI tool for identifying lung cancer subtypes was 10.9% less accurate for Black patients than for white patients — even after researchers tried to correct for it. When training data is collected without patients\' knowledge or consent, there is no mechanism to ensure it represents everyone fairly.',
   },
 };
 
@@ -68,6 +80,7 @@ const quotes = [
   { quote: '"The existing HIPAA framework is fundamentally inadequate to govern the use of patient data in AI development."', name: 'Kohane et al.', journal: 'NEJM AI, 2023' },
   { quote: '"Without a federal mandate for AI-specific consent, the growth of medical AI will outpace the law\'s ability to protect patients."', name: 'Cohen & Mello', journal: 'JAMA, 2022' },
   { quote: '"HIPAA\'s de-identification standard provides a false sense of privacy. Removing a name and birthdate from a medical scan does not make that scan anonymous."', name: 'Yala et al.', journal: 'Radiology AI, 2022' },
+  { quote: '"AI systems\' black box nature creates direct obstacles for clinicians attempting to explain AI-driven recommendations to patients, fundamentally undermining shared decision-making and informed consent."', name: 'Froicu et al.', journal: 'Current Oncology Reports, 2025' },
 ];
 
 export default function EvidencePage() {
@@ -218,13 +231,31 @@ export default function EvidencePage() {
               <div>
                 <h3 className="headline-md" style={{ color: 'var(--charcoal)', marginBottom: '0.5rem' }}>University of Chicago</h3>
                 <p style={{ fontSize: '0.78rem', color: 'var(--teal)', fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>Hospital + Google Partnership</p>
-                <p className="body-md" style={{ color: 'var(--gray)', marginBottom: '1rem', lineHeight: 1.85 }}>
+                <p className="body-md" style={{ color: '#3a3a3a', marginBottom: '1rem', lineHeight: 1.85 }}>
                   The University of Chicago Medical Center shared hundreds of thousands of de-identified patient records — including physicians' notes and date stamps — with Google for machine learning research without patients' prior knowledge.
                 </p>
-                <p className="body-md" style={{ color: 'var(--gray)', marginBottom: '1.25rem', lineHeight: 1.85 }}>
+                <p className="body-md" style={{ color: '#3a3a3a', marginBottom: '1.25rem', lineHeight: 1.85 }}>
                   A federal class-action lawsuit followed, alleging the records were insufficiently anonymized and that patients had not consented to commercial data sharing.
                 </p>
               </div>
+            </div>
+          </div>
+
+          {/* NIH + FTC fragmented enforcement */}
+          <div style={{ maxWidth: 860, margin: '4rem auto 0', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+            <div style={{ background: 'white', border: '1px solid var(--offwhite-dim)', borderTop: '4px solid var(--amber)', padding: '2rem', boxShadow: '0 2px 12px rgba(0,0,0,0.05)' }}>
+              <div className="section-label" style={{ marginBottom: '0.75rem' }}>The NIH Funding Problem</div>
+              <h3 className="headline-sm" style={{ color: 'var(--charcoal)', marginBottom: '1rem' }}>Open data mandates meet unconsented scans</h3>
+              <p className="body-md" style={{ color: '#3a3a3a', lineHeight: 1.8 }}>
+                The National Institutes of Health requires researchers who receive federal grant money to share the data they collect. This is meant to promote transparency. But when applied to cancer imaging, it creates a system where patient scans are deposited into public databases — like The Cancer Imaging Archive — and accessed by institutions the patient has never heard of, for purposes they never agreed to.
+              </p>
+            </div>
+            <div style={{ background: 'white', border: '1px solid var(--offwhite-dim)', borderTop: '4px solid #E87070', padding: '2rem', boxShadow: '0 2px 12px rgba(0,0,0,0.05)' }}>
+              <div className="section-label" style={{ marginBottom: '0.75rem', color: '#E87070' }}>A Fragmented System</div>
+              <h3 className="headline-sm" style={{ color: 'var(--charcoal)', marginBottom: '1rem' }}>Enforcement has drifted away from HIPAA</h3>
+              <p className="body-md" style={{ color: '#3a3a3a', lineHeight: 1.8 }}>
+                In 2023, the Federal Trade Commission — a consumer protection agency, not a health regulator — took action against GoodRx for sharing patients' health data with advertisers. HIPAA should have covered this. It didn't. When health privacy enforcement has to come from a consumer protection agency, it signals that HIPAA is no longer the right tool for the job.
+              </p>
             </div>
           </div>
 
@@ -265,7 +296,7 @@ export default function EvidencePage() {
             <div className="section-label" style={{ display: 'flex', justifyContent: 'center' }}>Academic Consensus</div>
             <h2 className="headline-lg">What leading researchers say</h2>
           </div>
-          <div className="grid-3" style={{ gap: '1.5rem' }}>
+          <div className="grid-2" style={{ gap: '1.5rem' }}>
             {quotes.map((q, i) => (
               <div key={i} style={{ borderLeft: '3px solid #2E8B8B', paddingLeft: '1.5rem' }}>
                 <p style={{ fontFamily: 'Playfair Display,serif', fontStyle: 'italic', fontSize: '1.05rem', lineHeight: 1.65, color: '#F4F1EC', marginBottom: '1rem' }}>{q.quote}</p>
