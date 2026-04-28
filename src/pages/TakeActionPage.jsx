@@ -81,8 +81,7 @@ export default function TakeActionPage() {
             <div>
               <div className="section-label teal" style={{ marginBottom: '0.75rem' }}>For Health Policy Stakeholders</div>
               <h2 className="headline-md" style={{ color: 'var(--charcoal)', marginBottom: '1.25rem' }}>The evidence is in the record.</h2>
-              
-              <p className="body-md" style={{ color: 'var(--gray)', marginBottom: '1.25rem', lineHeight: 1.85 }}>
+              <p className="body-md" style={{ color: '#3a3a3a', marginBottom: '1.25rem', lineHeight: 1.85 }}>
                 If you work in health policy, federal regulation, or legislative affairs, the evidence for a targeted HIPAA amendment is in the record. The peer-reviewed research, the HHS's own guidance, and the EU's binding precedent all point in the same direction.
               </p>
               <p className="body-md" style={{ color: 'var(--charcoal)', fontWeight: 500, lineHeight: 1.85 }}>
@@ -98,7 +97,7 @@ export default function TakeActionPage() {
                   "I am writing to urge you to support a targeted amendment to HIPAA that addresses how patient imaging data is used in AI research. Current law does not require AI-specific informed consent, does not adequately address re-identification risk in high-dimensional data, and provides no federal oversight for academic institutions conducting this research. I ask you to support legislation that closes these gaps."
                 </p>
               </div>
-              <p style={{ fontSize: '0.82rem', color: 'var(--gray)', marginTop: '1rem', lineHeight: 1.7 }}>
+              <p style={{ fontSize: '0.82rem', color: '#6B7280', marginTop: '1rem', lineHeight: 1.7 }}>
                 Contact your representative through <a href="https://www.congress.gov" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--teal)', fontWeight: 600 }}>congress.gov</a>. Find your senators at <a href="https://www.senate.gov" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--teal)', fontWeight: 600 }}>senate.gov</a>.
               </p>
             </div>
@@ -109,11 +108,10 @@ export default function TakeActionPage() {
       {/* ACTION CARDS */}
       <section style={{ padding: '4rem 0', background: '#142233' }}>
         <div className="container">
-          <div className="grid-4" style={{ gap: '1.25rem' }}>
+          <div className="grid-3" style={{ gap: '1.25rem' }}>
             {[
               { icon: '✉', label: 'Write Congress', desc: 'Send a personalized letter to your House and Senate representatives.', color: '#E8A838', anchor: '#write' },
               { icon: '📢', label: 'Share This Site', desc: 'Amplify the message on social media and in your networks.', color: '#3AABAB', anchor: '#share' },
-              { icon: '🤝', label: 'Join the Coalition', desc: 'Add your organization or name to the advocacy coalition.', color: '#F4F1EC', anchor: '#coalition' },
               { icon: '📞', label: 'Call Your Rep', desc: 'Three-minute call scripts ready — calls are more effective than emails.', color: '#E87070', anchor: '#call' },
             ].map((a, i) => (
               <a key={i} href={a.anchor} style={{ textDecoration: 'none' }}>
@@ -240,7 +238,7 @@ export default function TakeActionPage() {
       {/* CALL */}
       <section id="call" style={{ padding: '6rem 0', background: '#142233' }}>
         <div className="container-narrow">
-          <div className="section-label" style={{ marginBottom: '1rem' }}>Action 4</div>
+          <div className="section-label" style={{ marginBottom: '1rem' }}>Action 3</div>
           <h2 className="headline-lg" style={{ marginBottom: '1.5rem' }}>Call your representative</h2>
           
           <p className="body-lg" style={{ color: 'rgba(244,241,236,0.7)', marginBottom: '2.5rem' }}>

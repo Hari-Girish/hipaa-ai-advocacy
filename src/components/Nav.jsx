@@ -30,8 +30,8 @@ export default function Nav() {
   return (
     <>
       <nav className={`nav ${scrolled ? 'scrolled' : ''}`}>
-        <div className="nav-logo" onClick={() => go('/')}>
-          Hippa for AI
+        <div className="nav-logo" onClick={() => go('/')} style={{ display: 'flex', alignItems: 'center' }}>
+          <img src="/hippa-for-ai-aperture-logo.png" alt="HIPAA for AI" style={{ height: '52px', width: 'auto' }} />
         </div>
         <ul className="nav-links">
           {pages.slice(1).map(p => (
